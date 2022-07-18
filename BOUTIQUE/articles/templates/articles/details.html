@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block titre %} Page d'articles {% endblock %}
+
+{% block contenu %}
+    <h1> Détails de mon article</h1>
+    <h2>{{ article.nom }}</h2>
+    <p>publié le {{ article.date_publication }} </p>
+    <div>
+        <img width="400px" src="{{article.image.url}}" alt="{{ article.nom}}">
+    </div>
+    <p><h3>{{ article.prix }}€</h3></p>
+    <span>En stocke.s</span>
+    <div>
+        {{ article.quantity }}
+    </div>
+    <div>
+        <a href="{% url 'articles:ajouter' slug=article.slug %}">Ajouter au panier</a>
+    </div>
+    <div>
+        <a href="#">Acheter maintenant</a>
+    </div>
+    <p> Détails de l'article:</p>
+    <span>{{ article.description }}</span>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block contenu %}
+<h1> Veuillez vous inscrire </h1>
+<form method="POST">
+    {% csrf_token %}
+    <p>
+        <label for="username"> Nom d'utilisateur</label>
+        <input id="username" type="text" name="username">
+    </p>
+
+    <p>
+        <label for="password"> Mot de passe</label>
+        <input id="password" type="password" name="password"> 
+    </p>
+
+    <p>
+        <label for="email"> Email</label>
+        <input id="email" type="email" name="email"> 
+    </p>
+
+    <button type="submit">
+        S'inscrire
+    </button>
+    <p>Déjà inscrit.e? <a href="{% url 'connexion' %}">Se connecter</a></p>
+</form>
+{% endblock %}

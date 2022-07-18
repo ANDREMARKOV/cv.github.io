@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block titre %} Page d'articles {% endblock %}
+
+{% block contenu %}
+    <h1> salut {{user.username}}, Bienvenue dans ton panier</h1>
+    {% for commande in commandes %}
+    <h2>{{commande.article.nom}}</h2>
+    <img width="400px" src="{{commande.article.image.url}}" alt="{{ commande.article.nom}}">
+    <p>{{ commande.quantity }} dans le panier</p>
+    {% endfor %}
+    <p><a href="{% url 'articles:delete_panier' %}">Supprimer le panier</a></p>
+{% endblock %}
